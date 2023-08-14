@@ -4,6 +4,25 @@ $(document).ready(function () {
   $(".match_h > *").matchHeight();
 
 
+  if ($(window).width() > 1025) {
+    let last_scrollTop = 0;
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 150) {
+        let tmp = $(this).scrollTop();
+        if (tmp > last_scrollTop) {
+          // scroll down event
+          $('.header').addClass('hidden');
+        } else {
+          // scroll up event
+          $('.header').removeClass('hidden');
+        }
+        last_scrollTop = tmp;
+      } else {
+        $('.header').removeClass('hidden');
+      }
+    });
+  }
+
   // 모바일 헤더 그림자
   if ($(window).width() > 1025) {
     $(window).scroll(function () {
@@ -34,6 +53,7 @@ $(document).ready(function () {
 
     $('.sitemap').fadeIn().focus();
     $(".match_h > *").matchHeight();
+    $('body, html, .container').addClass('scroll-lock');
 
     sitemapHidden.attr("aria-hidden", "true"); // 레이어 바깥 영역을 스크린리더가 읽지 않게
 
@@ -67,6 +87,7 @@ $(document).ready(function () {
 
   $('body').on('click', '.sitemap-close', function () {
     $('.sitemap').fadeOut();
+    $('body, html, .container').removeClass('scroll-lock');
   });
 
 
@@ -145,7 +166,7 @@ $(document).ready(function () {
       $('.btn-top').removeClass('abs')
     }
   });
-  
+
 
 
   // 메인비주얼 슬라이드        
@@ -253,5 +274,33 @@ $(document).ready(function () {
   });
 
 
+  //서브로케이션
+  $('.sub-loca-selbtn').attr('title', '열기');
+  $('.sub-loca-selbtn').click(function () { //tab키로 바로 하위 메뉴로 접근하려면 click 대신 mousedown을 사용 / enter로 하위 메뉴 접근시에는 click 사용
+    if ($(this).siblings('.sub-loca-li-inner').hasClass('on')) {
+      $(this).siblings('.sub-loca-li-inner').removeClass('on');
+      $(this).attr('title', '열기').removeClass('on');
+    } else {
+      $('.sub-loca-li-inner').removeClass('on');
+      $(this).siblings('.sub-loca-li-inner').addClass('on');
+      $('.sub-loca-selbtn').removeClass('on');
+      $('.sub-loca-selbtn').attr('title', '열기');
+      $(this).attr('title', '닫기').addClass('on');
+    }
+  });
+
+  // $('.sub-loca-btn').on('focus', function() { //mousedown 사용시에 주석 해제
+  //   $('.sub-loca-li-inner').removeClass('on');
+  //   $(this).siblings('.sub-loca-li-inner').addClass('on');
+  // });
+
+  // 서브로케이션 외의 영역 클릭시 박스 사라짐
+  $(document).on('mouseup focusout', function (e) {
+    if ($(".sub-location-ul").has(e.target).length === 0) {
+      $('.sub-loca-li-inner').removeClass('on');
+      $('.sub-loca-selbtn').removeClass('on');
+      $('.sub-loca-selbtn').attr('title', '열기');
+    }
+  });
 
 });
