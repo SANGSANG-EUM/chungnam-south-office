@@ -303,4 +303,13 @@ $(document).ready(function () {
     }
   });
 
+
+  // card 레이아웃 마우스 오버
+  $('.card-btn').on('mouseenter', function(){
+    $(this).closest('.card-li').addClass('on');
+  });
+  $('.card-btn').on('mouseleave', function(){
+    $('.card-li').removeClass('on');
+  });
+
 });
