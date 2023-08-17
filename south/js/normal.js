@@ -220,48 +220,53 @@ $(document).ready(function () {
 
 
   // 메인 팝업(배너) 슬라이드        
-  let bannerSl = new Swiper(".main-banner-slider", {
-    slidesPerView: 1,
-    spaceBetween: 0,
-    loop: true,
-    autoplay: {
-      delay: 4000,
-      disableOnInteraction: false,
-    },
-    navigation: {
-      nextEl: ".main-banner-arrow.next",
-      prevEl: ".main-banner-arrow.prev",
-    },
-    on: {
-      slideChange: function () {
-        $('.main-banner-current').text(bannerSl.realIndex + 1)
+  if ($('.main-banner-slide').length > 1) {
+    let bannerSl = new Swiper(".main-banner-slider", {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      loop: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
       },
-    },
-    a11y: {
-      prevSlideMessage: '이전 슬라이드',
-      nextSlideMessage: '다음 슬라이드',
-      slideLabelMessage: '총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.',
-    },
-  });
+      navigation: {
+        nextEl: ".main-banner-arrow.next",
+        prevEl: ".main-banner-arrow.prev",
+      },
+      on: {
+        slideChange: function () {
+          $('.main-banner-current').text(bannerSl.realIndex + 1);
+        },
+      },
+      a11y: {
+        prevSlideMessage: '이전 슬라이드',
+        nextSlideMessage: '다음 슬라이드',
+        slideLabelMessage: '총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.',
+      },
+    });
 
-  // praction 커스텀
-  $('.main-banner-current').text('1');
-  let bannerTot = $('.main-banner-slider .main-banner-slide').length;
-  $('.main-banner-total').text(bannerTot);
+    // praction 커스텀
+    $('.main-banner-current').text('1');
+    let bannerTot = $('.main-banner-slider .main-banner-slide').length;
+    $('.main-banner-total').text(bannerTot);
 
-  // 메인 비주얼 슬라이드 정지
-  $(".main-banner-btn.pause").click(function () {
-    bannerSl.autoplay.stop();
-    $(this).css('display', 'none');
-    $(".main-banner-btn.play").css('display', 'flex');
-  });
+    // 메인 비주얼 슬라이드 정지
+    $(".main-banner-btn.pause").click(function () {
+      bannerSl.autoplay.stop();
+      $(this).css('display', 'none');
+      $(".main-banner-btn.play").css('display', 'flex');
+    });
 
-  // 메인 비주얼 슬라이드 다시재생
-  $(".main-banner-btn.play").click(function () {
-    bannerSl.autoplay.start();
-    $(this).css('display', 'none');
-    $(".main-banner-btn.pause").css('display', 'flex');
-  });
+    // 메인 비주얼 슬라이드 다시재생
+    $(".main-banner-btn.play").click(function () {
+      bannerSl.autoplay.start();
+      $(this).css('display', 'none');
+      $(".main-banner-btn.pause").css('display', 'flex');
+    });
+  } else {
+    $('.main-banner-ctr-wr').css('display', 'none');
+  }
+
 
 
   // 메인 출장소 새소식 탭박스
@@ -305,11 +310,100 @@ $(document).ready(function () {
 
 
   // card 레이아웃 마우스 오버
-  $('.card-btn').on('mouseenter', function(){
+  $('.card-btn').on('mouseenter', function () {
     $(this).closest('.card-li').addClass('on');
   });
-  $('.card-btn').on('mouseleave', function(){
+  $('.card-btn').on('mouseleave', function () {
     $('.card-li').removeClass('on');
+  });
+
+
+  // 리스트 카테고리 슬라이드
+  $(window).on('load', function () {
+    const $slider = $(".list-category-slider");
+    const $ctr = $(".list-cate-sl-ctr"); // 컨트롤러 요소
+
+    // 슬라이더 초기화 함수
+    function initializeSlider() {
+      // 슬라이더의 가로 너비
+      const sliderWidth = $slider.width();
+
+      // 카테고리 항목들의 가로 너비 합 초기화
+      let categoriesWidth = 0;
+
+      // 각 카테고리 항목의 가로 너비를 더해줍니다.
+      $slider.find('.list-category-li').each(function () {
+        categoriesWidth += $(this).outerWidth(true); // 여기서 outerWidth(true)를 사용해야 마진을 포함한 실제 너비가 계산됩니다.
+      });
+
+      // 가로 너비 비교를 통한 조건 확인
+      if (categoriesWidth > sliderWidth) {
+        $slider.slick({
+          slidesToShow: 1,
+          variableWidth: true,
+          accessibility: true,
+          slidesToScroll: 1,
+          infinite: false,
+          arrows: true,
+          responsive: [{
+            breakpoint: 769,
+            settings: {
+              slidesToShow: 2,
+            }
+          }]
+        });
+
+        // 컨트롤러 보이기
+        $ctr.show();
+
+        // 컨트롤러 코드
+        let $cate_sl_prev = $(".list-category-slider").find(".slick-prev"),
+          $cate_sl_next = $(".list-category-slider").find(".slick-next");
+
+        let $cate_sl_prev_tg = $(".list-cate-sl-prev"),
+          $cate_sl_next_tg = $(".list-cate-sl-next");
+
+        $cate_sl_prev_tg.on('click', function () {
+          $cate_sl_prev.trigger('click');
+        });
+        $cate_sl_next_tg.on('click', function () {
+          $cate_sl_next.trigger('click');
+        });
+
+        // 특정 페이지에서 '민원지원' 카테고리로 초기 슬라이드 설정
+        // const currentPath = window.location.pathname;
+        // if (currentPath === "/sub/news_list.html") {
+        //   $slider.slick("slickGoTo", 5);
+        // }
+
+      } else {
+        // 컨트롤러 숨기기
+        $ctr.hide();
+      }
+    }
+
+    // 초기화 함수 호출
+    initializeSlider();
+  });
+
+
+  // FAQ 아코디언
+  $('.accordion-q').on('click', function () {
+    let accordionLi = $(this).parents('.accordion-li');
+    let accordionA = $(this).siblings('.accordion-a');
+
+    if (accordionLi.hasClass('on')) {
+      $('.accordion-li').removeClass('on');
+      $('.accordion-a').slideUp();
+      $('.accordion-q').attr('title', '열기');
+    } else {
+      $('.accordion-li').removeClass('on');
+      accordionLi.addClass('on');
+      $('.accordion-a').slideUp();
+      accordionA.slideDown();
+      $('.accordion-q').attr('title', '열기');
+      $(this).attr('title', '닫기');
+    };
   });
 
 });
