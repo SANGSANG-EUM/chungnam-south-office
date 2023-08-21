@@ -485,10 +485,75 @@
   </div>
   <!-- } main contents -->
 
+  <div class="layer-pop-wr">
+    <div class="layer-pop" style="top: 5vw; left: 5vw; width: min(95vw, 500px); height: min(95vw, 500px);">
+      <div class="layer-pop-img">
+        <a href="" target="_blank" title="새창열림"><img src="../south/images/banner_sample3.jpg" alt="충청남도 청년 주고 안정 전세보증금반환보증료 지원 전세보증금반환보증료 지원신청하세요"></a>
+      </div>
+      <div class="layer-pop-bottom">
+        <a href="javascript:void(0);" class="layer-pop-24-close">오늘 하루 열지 않기</a>
+        <a href="javascript:void(0);" class="layer-pop-close">닫기</a>
+      </div>
+    </div>
+  </div>
+
   <!-- footer 임시 인클루드 {-->
   <div id="footer-loaction"></div>
   <!-- } footer 임시 인클루드 -->
 
+  <script>
+    var toggleMainPopup = function() {
+    
+    /* 스토리지 제어 함수 정의 */
+    var handleStorage = {
+      // 스토리지에 데이터 쓰기(이름, 만료일)
+      setStorage: function (name, exp) {
+        // 만료 시간 구하기(exp를 ms단위로 변경)
+        var date = new Date();
+        date = date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
+  
+        // 로컬 스토리지에 저장하기
+        // (값을 따로 저장하지 않고 만료 시간을 저장)
+        localStorage.setItem(name, date)
+      },
+      // 스토리지 읽어오기
+      getStorage: function (name) {
+        var now = new Date();
+        now = now.setTime(now.getTime());
+        // 현재 시각과 스토리지에 저장된 시각을 각각 비교하여
+        // 시간이 남아 있으면 true, 아니면 false 리턴
+        return parseInt(localStorage.getItem(name)) > now
+      }
+    };
+    
+    
+    // 쿠키 읽고 화면 보이게
+    if (handleStorage.getStorage("todayPop")) {
+      $(".layer-pop-wr").removeClass("on");
+    } else {
+      $(".layer-pop-wr").addClass("on");
+    }
+    
+    // 오늘하루 보지 않기 버튼
+    $(".layer-pop-24-close").on("click", function () {
+      // 로컬 스토리지에 today라는 이름으로 1일(24시간 뒤) 동안 보이지 않게
+      handleStorage.setStorage("todayPop", 1);
+      $(this).closest(".layer-pop-wr.on").removeClass("on");
+    });
+  
+    // 일반 닫기 버튼
+    $(".layer-pop-close").on("click", function () {
+      $(this).closest(".layer-pop-wr.on").removeClass("on");
+    });
+  }
+  
+  $(function() {
+    toggleMainPopup();
+  });
+  </script>
+
 </body>
+
+
 
 </html>
