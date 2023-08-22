@@ -1,0 +1,33 @@
+* {margin:0; padding:0; box-sizing:border-box; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; word-break: keep-all;}
+html,body{max-width: 100%; min-height: 100%;}
+html{overflow-x: hidden; -webkit-text-size-adjust: none;}
+body{-webkit-print-color-adjust:exact; background: #fff; font-family: 'Montserrat', 'Noto Sans KR', sans-serif; font-style: normal; font-size: 16px; font-weight: 300; color: #333; line-height: 1.5; letter-spacing: -0.5px;}
+ul, li, dl,dt,dd {margin:0;padding:0;list-style:none}
+a{color:#333;text-decoration:none;}
+img {border: 0; font-size: 0; max-width: 100%;}
+h1, h2, h3, h4, h5, h6{font-size:1em;font-family: 'Montserrat', 'Noto Sans KR', sans-serif;}
+textarea, select{font-family: 'Montserrat', 'Noto Sans KR', sans-serif;font-size:1rem}
+input, button{margin:0;padding:0;font-family: 'Montserrat', 'Noto Sans KR', sans-serif;font-size:1rem}
+input[type="submit"], button{cursor:pointer}
+table, tr, td { border-collapse: collapse;}
+p{word-break: keep-all;}
+input{border-radius: 0; -webkit-border-radius: 0; -webkit-appearance: none;}
+/* input[type="radio"], input[type="checkbox"] {position: absolute; width: 0; height: 0; opacity: 0;} */
+button {border: 0; background: none;}
+
+/* guide line */
+.wrapper{width: 1456px; max-width: 100%; margin: 0 auto;}
+
+/* font */
+.jalnan {font-family: Jalnan;}
+
+/* buttons */
+.nambu-btn {display: flex; justify-content: space-between; align-items: center; padding: 0 25px; min-width: 225px; height: 60px; border-radius: 0.7rem; background-color: #f0f0f0; color: #8a8a8a; font-weight: 400; transition: .2s;}
+.link-btn img {width: 7px;}
+
+/* input */
+.nambu-input {padding: 0 20px; width: auto; height: 48px; border: 1px solid #ddd; border-radius: 0.5rem; font-weight: 400; color: #666;}
+.nambu-select {appearance: none; background: url('../images/icon-select.png') no-repeat center right 20px / 13px; font-weight: 400; color: #666;}
+
+/* sound only */
+.sound_only{display: inline-block; position: absolute; top: 0; left: 0; width: 0; height: 0; margin: 0; padding: 0; font-size: 0; line-height: 0; border: 0; overflow: hidden;}
