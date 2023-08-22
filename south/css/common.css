@@ -27,7 +27,7 @@ button {border: 0; background: none;}
 
 /* input */
 .nambu-input {padding: 0 20px; width: auto; height: 48px; border: 1px solid #ddd; border-radius: 0.5rem; font-weight: 400; color: #666;}
-.nambu-select {appearance: none; background: url('/south/images/icon-select.png') no-repeat center right 20px / 13px; font-weight: 400; color: #666;}
+.nambu-select {appearance: none; background: url('../images/icon-select.png') no-repeat center right 20px / 13px; font-weight: 400; color: #666;}
 
 /* sound only */
 .sound_only{display: inline-block; position: absolute; top: 0; left: 0; width: 0; height: 0; margin: 0; padding: 0; font-size: 0; line-height: 0; border: 0; overflow: hidden;}

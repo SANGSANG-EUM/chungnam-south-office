@@ -83,11 +83,34 @@ $(document).ready(function () {
         $('.sitemap').fadeOut();
       }
     });
+
+    if ($(window).width() < 481) {
+      $('.gnb-ul--sitemap .gnb-li > a').attr('href', 'javascript:void(0);')
+    }
+
+  });
+
+  $('body').on('click', '.sitemap-wr .gnb-li > a', function () {
+    if ($(this).closest('.gnb-li').hasClass('open')) {
+      $(this).closest('.gnb-li').removeClass('open');
+      $(this).siblings('.gnb-dep2-ul').slideUp();
+    } else {
+      $('.gnb-li').removeClass('open');
+      $('.gnb-dep2-ul').slideUp();
+      $(this).closest('.gnb-li').addClass('open');
+      $(this).siblings('.gnb-dep2-ul').slideDown();
+    }
   });
 
   $('body').on('click', '.sitemap-close', function () {
     $('.sitemap').fadeOut();
     $('body, html, .container').removeClass('scroll-lock');
+    $('.gnb-li').removeClass('open');
+
+    if ($(window).width() < 481) {
+      $('.gnb-dep2-ul').slideUp();
+    }
+
   });
 
 
@@ -285,12 +308,14 @@ $(document).ready(function () {
     if ($(this).siblings('.sub-loca-li-inner').hasClass('on')) {
       $(this).siblings('.sub-loca-li-inner').removeClass('on');
       $(this).attr('title', '열기').removeClass('on');
+      $('.list-category-ul').css('z-index', '10');
     } else {
       $('.sub-loca-li-inner').removeClass('on');
       $(this).siblings('.sub-loca-li-inner').addClass('on');
       $('.sub-loca-selbtn').removeClass('on');
       $('.sub-loca-selbtn').attr('title', '열기');
       $(this).attr('title', '닫기').addClass('on');
+      $('.list-category-ul').css('z-index', '-1');
     }
   });
 
@@ -305,6 +330,7 @@ $(document).ready(function () {
       $('.sub-loca-li-inner').removeClass('on');
       $('.sub-loca-selbtn').removeClass('on');
       $('.sub-loca-selbtn').attr('title', '열기');
+      $('.list-category-ul').css('z-index', '10');
     }
   });
 
@@ -343,14 +369,18 @@ $(document).ready(function () {
           variableWidth: true,
           accessibility: true,
           slidesToScroll: 1,
-          infinite: false,
+          infinite: true,
           arrows: true,
-          responsive: [{
-            breakpoint: 769,
-            settings: {
-              slidesToShow: 2,
-            }
-          }]
+          // responsive: [{
+          //   breakpoint: 767,
+          //   settings: {
+          //     slidesToShow: 3,
+          //   },
+          //   breakpoint: 480,
+          //   settings: {
+          //     slidesToShow: 1,
+          //   }
+          // }]
         });
 
         // 컨트롤러 보이기
@@ -370,11 +400,12 @@ $(document).ready(function () {
           $cate_sl_next.trigger('click');
         });
 
-        // 특정 페이지에서 '민원지원' 카테고리로 초기 슬라이드 설정
-        // const currentPath = window.location.pathname;
-        // if (currentPath === "/sub/news_list.html") {
-        //   $slider.slick("slickGoTo", 5);
-        // }
+        // active 클래스가 있는 항목을 찾아 첫 번째 슬라이드로 이동
+        const $activeItem = $slider.find('.list-category-li.active');
+        if ($activeItem.length > 0) {
+          const activeIndex = $activeItem.index();
+          $slider.slick("slickGoTo", activeIndex - 1);
+        }
 
       } else {
         // 컨트롤러 숨기기
@@ -384,6 +415,18 @@ $(document).ready(function () {
 
     // 초기화 함수 호출
     initializeSlider();
+
+    function BsSlick() {
+      let slideNo = $(".list-category-li.active").data("caidx");
+      
+      if (slideNo == $('.list-category-li').length) {
+        $slider.slick('slickGoTo', slideNo - 2);
+      } else {
+        $slider.slick('slickGoTo', slideNo);
+      }
+    }
+  
+    BsSlick();
   });
 
 
