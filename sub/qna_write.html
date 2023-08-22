@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>충청남도 남부출장소 > 참여마당 > 문의글쓰기</title>
+  <!-- css { -->
+  <link rel="stylesheet" href="../south/plugin/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="../south/plugin/slick/slick.css">
+  <link rel="stylesheet" href="../south/css/common.css">
+  <link rel="stylesheet" href="../south/css/fonts.css">
+  <link rel="stylesheet" href="../south/css/normal.css">
+  <link rel="stylesheet" href="../south/css/responsive.css">
+  <!-- } css -->
+  <!-- js { -->
+  <script src="../south/js/jquery-3.7.0.min.js"></script>
+  <script src="../south/plugin/swiper/swiper-bundle.min.js"></script>
+  <script src="../south/plugin/slick/slick.min.js"></script>
+  <script src="../south/plugin/matchheight/jquery.matchHeight.js"></script>
+  <script src="../south/js/normal.js"></script>
+  <!-- } js -->
+</head>
+
+<!-- header, footer 임시 인클루드 -->
+<script>
+  $(document).ready(function () {
+    $('#header-loaction').load("../include/header.html");
+  });
+  $(document).ready(function () {
+    $('#footer-loaction').load("../include/footer.html");
+  });
+</script>
+
+<body>
+  <!-- header 임시 인클루드 { -->
+  <div id="header-loaction"></div>
+  <!-- } header 임시 인클루드 -->
+
+
+  <!-- container { -->
+  <div id="container" class="container">
+
+    <!-- sub visual { -->
+    <div class="sub-visual-wr">
+      <div class="sub-visual-img">
+        <img src="../south/images/subvisual5.jpg" alt="">
+      </div>
+      <p class="sub-visual-txt">참여마당</p>
+      <div class="wrapper sub-location-wr">
+        <div class="sub-location">
+          <ul class="sub-location-ul">
+            <li class="sub-location-li sub-location-li--home">
+              <a href="../main/index.html">
+                <img src="../south/images/icon-home.svg" alt="">
+                <span>HOME</span>
+              </a>
+            </li>
+            <li class="sub-location-li sub-location-li--menu">
+              <button type="button" class="sub-loca-selbtn">참여마당</button>
+              <div class="sub-loca-li-inner">
+                <ul class="sub-loca-dep2-ul">
+                  <li class="sub-loca-dep2-li">
+                    <a href="./greeting.html">남부출장소</a>
+                  </li>
+                  <li class="sub-loca-dep2-li">
+                    <a href="./mw_info.html">민원지원</a>
+                  </li>
+                  <li class="sub-loca-dep2-li">
+                    <a href="./gb_info.html">국방협력</a>
+                  </li>
+                  <li class="sub-loca-dep2-li">
+                    <a href="./is_info.html">인삼약초</a>
+                  </li>
+                  <li class="sub-loca-dep2-li">
+                    <a href="./news_list.html">참여마당</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="sub-location-li sub-location-li--menu">
+              <button type="button" class="sub-loca-selbtn">문의하기</button>
+              <div class="sub-loca-li-inner">
+                <ul class="sub-loca-dep2-ul">
+                  <li class="sub-loca-dep2-li">
+                    <a href="./news_list.html">새소식</a>
+                  </li>
+                  <li class="sub-loca-dep2-li">
+                    <a href="./faq.html">자주하는 질문</a>
+                  </li>
+                  <li class="sub-loca-dep2-li">
+                    <a href="./qna_write.html">문의하기</a>
+                  </li>
+                  <li class="sub-loca-dep2-li">
+                    <a href="./download.html">민원서식</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+          <ul class="sub-location-ul">
+            <li class="sub-location-li sub-location-li--btn">
+              <button type="button" class="sub-loca-btn btnShare" onclick="CopyClipBoard();">
+                <img src="../south/images/icon-share.svg" alt="공유하기">
+              </button>
+            </li>
+            <li class="sub-location-li sub-location-li--btn btnPrint" onclick="printPage();">
+              <button type="button" class="sub-loca-btn">
+                <img src="../south/images/icon-print.svg" alt="인쇄하기">
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- } sub visual -->
+
+    <!-- sub contents { -->
+    <div class="sub content">
+      <div class="wrapper">
+        <div class="sub-title-wr">
+          <p class="sub-title">문의글쓰기</p>
+        </div>
+      </div>
+      <div class="subsec">
+        <div class="wrapper">
+
+          <div class="write-wr">
+            <form action="">
+              <ul class="write-ul">
+                <li class="write-li write-li--half write-li--l">
+                  <div class="write-left">
+                    <span>이름</span>
+                  </div>
+                  <div class="write-right">
+                    <label for="이름 id" class="sound_only">이름 입력</label>
+                    <input type="text" id="이름 id" class="nambu-input">
+                  </div>
+                </li>
+                <li class="write-li write-li--half write-li--r">
+                  <div class="write-left">
+                    <span>비밀번호</span>
+                  </div>
+                  <div class="write-right">
+                    <label for="비밀번호 id" class="sound_only">비밀번호 입력</label>
+                    <input type="password" id="비밀번호 id" class="nambu-input">
+                  </div>
+                </li>
+                <li class="write-li write-li--half write-li--l">
+                  <div class="write-left">
+                    <span>핸드폰 번호</span>
+                  </div>
+                  <div class="write-right">
+                    <label for="핸드폰번호 첫번째 자리 id" class="sound_only">핸드폰 번호 첫번째 자리 입력</label>
+                    <label for="핸드폰번호 두번째 자리 id" class="sound_only">핸드폰 번호 두번째 자리 입력</label>
+                    <label for="핸드폰번호 마지막 자리 id" class="sound_only">핸드폰 번호 마지막 자리 입력</label>
+                    <div class="input-wr input-wr--hp">
+                      <select name="" id="핸드폰번호 첫번째 자리 id" class="nambu-input nambu-select">
+                        <option value="">010</option>
+                      </select>
+                      <span class="input-icon">-</span>
+                      <input type="text" id="핸드폰번호 두번째 자리 id" class="nambu-input">
+                      <span class="input-icon">-</span>
+                      <input type="text" id="핸드폰번호 마지막 자리 id" class="nambu-input">
+                    </div>
+                  </div>
+                </li>
+                <li class="write-li write-li--half write-li--r">
+                  <div class="write-left">
+                    <span>비밀번호 확인</span>
+                  </div>
+                  <div class="write-right">
+                    <label for="비밀번호 확인 id" class="sound_only">비밀번호 한번 더 입력</label>
+                    <input type="password" id="비밀번호 확인 id" class="nambu-input">
+                  </div>
+                </li>
+                <li class="write-li write-li--half write-li--l">
+                  <div class="write-left">
+                    <span>이메일</span>
+                  </div>
+                  <div class="write-right">
+                    <label for="이메일 주소 첫번째 자리 id" class="sound_only">이메일 주소 첫번째 자리 입력</label>
+                    <label for="이메일 주소 마지막 자리 id" class="sound_only">이메일 주소 마지막 자리 입력</label>
+                    <div class="input-wr input-wr--mail">
+                      <input type="text" id="이메일 주소 첫번째 자리 id" class="nambu-input">
+                      <span class="input-icon">@</span>
+                      <input type="text" id="이메일 주소 마지막 자리 id" class="nambu-input">
+                    </div>
+                  </div>
+                </li>
+                <li class="write-li write-li--half write-li--r">
+                  <div class="write-left">
+                    <span>문의분류</span>
+                  </div>
+                  <div class="write-right">
+                    <label for="문의분류 id" class="sound_only">문의분류 선택</label>
+                    <select name="" id="문의분류 id" class="nambu-input nambu-select">
+                      <option value="">선택하세요.</option>
+                      <option value="">민원지원</option>
+                      <option value="">국방협력</option>
+                      <option value="">인삼약초</option>
+                      <option value="">기타</option>
+                    </select>
+                  </div>
+                </li>
+                <li class="write-li write-li--full">
+                  <div class="write-left">
+                    <span>문의제목</span>
+                  </div>
+                  <div class="write-right">
+                    <label for="문의제목 id" class="sound_only">문의제목 입력</label>
+                    <input type="text" id="문의제목 id" class="nambu-input">
+                  </div>
+                </li>
+                <li class="write-li write-li--full">
+                  <div class="write-left">
+                    <span>문의내용</span>
+                  </div>
+                  <div class="write-right">
+                    <label for="문의내용 id" class="sound_only">문의내용 입력</label>
+                    <textarea name="" id="문의내용 id" cols="30" rows="10" class="nambu-input nambu-textarea"></textarea>
+                  </div>
+                </li>
+              </ul>
+              <div class="center-btn-wr">
+                <button type="submit" class="nambu-btn card-link card-btn submit-btn"><span>문의글 접수하기</span></button>
+                <a href="./qna_list.html" class="nambu-btn card-link card-btn"><span>목록보기</span></a>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- } sub contents -->
+
+  </div>
+  <!-- } container -->
+
+  <script>
+    // 현재 페이지 프린트하기
+    function printPage() {
+      window.print();
+    }
+
+    // 현재 페이지 복사하기
+    function CopyClipBoard() {
+      let url = '';
+      let textarea = document.createElement("textarea");
+      document.body.appendChild(textarea);
+      url = window.location.href;
+      textarea.value = url;
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+      alert("현재 페이지 링크가 복사되었습니다")
+    }
+
+    //
+  </script>
+
+  <!-- footer 임시 인클루드 {-->
+  <div id="footer-loaction"></div>
+  <!-- } footer 임시 인클루드 -->
+</body>

@@ -4,7 +4,7 @@ $(document).ready(function () {
   $(".match_h > *").matchHeight();
 
 
-  if ($(window).width() > 1025) {
+  if ($(window).width() > 1024) {
     let last_scrollTop = 0;
     $(window).scroll(function () {
       if ($(this).scrollTop() > 150) {
@@ -24,7 +24,7 @@ $(document).ready(function () {
   }
 
   // 모바일 헤더 그림자
-  if ($(window).width() > 1025) {
+  // if ($(window).width() > 1025) {
     $(window).scroll(function () {
       if ($(this).scrollTop() > 0) {
         $('.header').addClass('shadow');
@@ -32,7 +32,7 @@ $(document).ready(function () {
         $('.header').removeClass('shadow');
       }
     });
-  }
+  // }
 
   // gnb 오버
   $('body').on('mouseenter focusin', '.nav--menu .gnb-li', function () {

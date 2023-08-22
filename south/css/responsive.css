@@ -13,6 +13,12 @@
   .main-news-date, .icon-category {font-size: 0.9rem;}
   .main-news-box-ul {height: calc(100% - 55px);}
   .main-info-tel {font-size: 1rem;}
+
+  /* layouts */
+  /* > write */
+  .write-left {padding: 10px 15px; width: 150px;}
+  .write-right {width: calc(100% - 150px);}
+  .input-wr--hp .nambu-input.nambu-select {width: 33%;}
 }
 
 @media screen and (max-width:1290px){
@@ -143,8 +149,24 @@
   .view-btn-li a img {width: 8px;}
 
   /* > list */    
+  .list-category-wr {margin-top: 0;}
   .list-subject, .list-table th {font-size: 1rem;}
   .icon-cate {font-size: 0.9rem; padding: 2px 7px;}
+
+  /* > write */
+  .write-left {font-size: 1rem;}
+  .write-li--half {width: 100%;}
+  .write-li--r {border-left: 0;}
+  .write-li:nth-child(1) {order: 1;}
+  .write-li:nth-child(2) {order: 2;}
+  .write-li:nth-child(3) {order: 4;}
+  .write-li:nth-child(4) {order: 3;}
+  .write-li:nth-child(5) {order: 5;}
+  .write-li:nth-child(6) {order: 6;}
+  .write-li:nth-child(7) {order: 7;}
+  .write-li:nth-child(8) {order: 8;}
+  .write-wr .card-btn {font-size: 1rem;}
+
   
   /* 인사말 */
   .greeting-tit {font-size: 1.8rem;}
@@ -163,7 +185,7 @@
   /* common */
   .container {margin: 95px 0 0 0;}
   /* header */
-  .header-ham, .nav--sitemap .header-ham {width: 45px; height: 45px; background-size: 20px;}
+  .header-ham, .nav--sitemap .header-ham {width: 45px; height: 45px; background-size: 20px; background-position: center;}
   .sitemap-wr .hd-sites-wr {flex-wrap: wrap;}
   .sitemap-wr .hd-sites-ul {width: 33%;}
   .sitemap-wr .hd-sites-li {padding: 1px 0;}
@@ -228,10 +250,9 @@
   .list-sch-input-wr {width: calc(100% - 120px);}
   .sch-input {width: 100%; padding-right: 35px;}
   .sch-select {width: 120px;}
-  .nambu-select {padding: 0 30px 0 15px; background-position: center right 15px;}
+  .nambu-select {padding: 0 30px 0 15px; background-position: center right 15px; background-size: 10px;}
 
   /* > list */
-  .list-category-wr {margin-top: 0;}
   .list-category-ul .slick-list {margin-right: 82px;}
   .list-category-li a {height: 40px; font-size: 1rem; border-radius: 0.7rem;}
   .list-cate-sl-btn {width: 40px; height: 40px;}
@@ -241,7 +262,11 @@
   .list-table td:not(:last-child) {border-right: 0;}
   .list-table td {padding: 15px 0;}
   .list-mo {display: block;}
-  .list-mo--date {padding-top: 10px; font-size: 0.9rem; color: #999;}
+  .list-mo--date {display: flex; gap: 0 20px; padding-top: 10px; font-size: 0.9rem; color: #999;}
+  .list-mo--date > span {position: relative;}
+  .list-mo--date > span:not(:last-child)::after {content: ''; position: absolute; top: 50%; right: -10.5px; transform: translateY(-50%); width: 1px; height: 10px; background-color: #ccc;}
+  .icon-cate {min-width: 65px;}
+
 
   /* 인사말 */
   .greeting-img {border-radius: 0 0 15vw 0;}
@@ -289,6 +314,13 @@
   .sitemap-wr .hd-sites-li {text-align: center;}
   .sitemap .dot-txt, .sitemap-wr .hd-sites-li > a {display: block; font-size: 1.125rem; padding: 2px 0;}
   .sitemap .dot-txt::before, .sitemap-wr .hd-sites-li > a::before {display: none;}
+
+  .tnb-ul:nth-child(2) {display: none;}
+  .sitemap-wr--mo {display: block;}
+  .sitemap-btn-wr{display: flex; gap: 2vw;}
+  .sitemap-btn-wr > * {display: block; flex: 1; padding: 10px; border-radius: 0.5rem; text-align: center; font-weight: 400; color: #fff; background-color: #28577a
+    ; font-size: 1rem;}
+  .sitemap-wr:first-child {margin-top: -20px;}
 
   /* footer */
   .footer-copy {font-size: 12px;}
@@ -347,6 +379,7 @@
   .list-cate-sl-ctr::after {width: 30px;}
   .list-cate-sl-btn{width: 35px; height: 35px;}
   .list-category-li a {height: 35px;}
+  .list-lock {width: 12px; height: 15px; margin-bottom: 2px;}
 
   /* > view */
   .view-btn-ul {gap: 0 2vw;}
@@ -354,6 +387,15 @@
   .view-btn-li--list {flex: 1.5;}
   .view-btn-li a {width: 100%; height: 40px; gap: 0 5vw;}
   .view-btn-li a img {width: 6px;}
+
+  /* > write */
+  .write-li {flex-direction: column;}
+  .write-left, .write-right {width: 100%;}
+  .write-left {justify-content: center; border-right: 0;}
+  .write-right {padding: 10px 0;}
+  .nambu-input.nambu-textarea {height: 200px;}
+  .input-icon {width: 20px;}
+  .input-wr--hp .nambu-input, .input-wr--hp .nambu-input.nambu-select {width: calc(100% / 3 - 40px / 3);}
 
   /* > card */
   .card-li {width: 100%;}
