@@ -142,8 +142,9 @@
 
   /* > view */
   .view-subject-wr {display: block; width: 100%;}
+  .view-subject-wr .icon-cate {margin-right: 5px;}
   .view-info {flex-direction: column; align-items: flex-start;}
-  .view-subject {font-size: 1.125rem;}
+  .view-subject {font-size: 1.125rem; vertical-align: middle;}
   .view-date, .view-content, .view-btn-li a {font-size: 1rem;}
   .view-date {width: 100%; text-align: right;}
   .view-btn-li a img {width: 8px;}
@@ -387,6 +388,10 @@
   .view-btn-li--list {flex: 1.5;}
   .view-btn-li a {width: 100%; height: 40px; gap: 0 5vw;}
   .view-btn-li a img {width: 6px;}
+  .view-table-ul {flex-direction: column;}
+  .view-table-li {gap: 0 25px;}
+  .view-table-li-l {width: 60px;}
+  .view-table-li-r {width: calc(100% - 80px);}
 
   /* > write */
   .write-li {flex-direction: column;}
